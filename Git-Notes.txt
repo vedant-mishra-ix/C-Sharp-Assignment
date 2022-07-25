@@ -1,0 +1,13 @@
+At The repo creation time create gitignore
+
+1.git init :  for creating .git folder in you file
+
+2.git remote add origin "path"
+
+3. then create the gitignore file in your file (for removing all unneceesary things)
+
+4. then git add .
+ 
+5. then git commit -m "___"
+
+6. then git push

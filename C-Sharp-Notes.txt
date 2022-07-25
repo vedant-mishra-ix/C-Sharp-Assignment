@@ -1,0 +1,832 @@
+-------------------------------------------- C-Sharp------------------------------------------------------
+- it is a programming language or object oriented programming language for .Net Framework.
+
+-------------------------------------------- Used For --------------------------------------------------
+- it is used to develop----
+
+1. web application
+2. window application
+3. Distributed application
+4. Database application
+
+
+
+------------------------------------------ Java vs  C-Sharp -------------------------------------------
+
+
+1)	Java is a high level, robust, secured and object-oriented programming language developed by Oracle.  					----	C# is an object-oriented programming language developed by Microsoft that runs on .Net Framework.
+
+2)	Java programming language is designed to be run on a Java platform, by the help of Java Runtime Environment (JRE).  		----	C# programming language is designed to be run on the Common Language Runtime (CLR).
+
+3)	Java type safety is safe.																	----	C# type safety is unsafe.
+
+4)	In java, built-in data types that are passed by value are called primitive types.								----	In C#, built-in data types that are passed by value are called simple types.
+
+5)	Arrays in Java are direct specialization of Object.													---- Arrays in C# are specialization of System.
+
+6)	Java does not support conditional compilation.														---- C# supports conditional compilation using preprocessor directives.
+
+7)	Java doesn't support goto statement.															---- C# supports goto statement.
+
+8)	Java doesn't support structures and unions.														---- C# supports structures and unions.
+
+9)	Java supports checked exception and unchecked exception.												---- C# supports unchecked exception.
+
+
+
+
+-------------------------------------------------------- Features ------------------------------------------
+1. simple (because it's follow the structure procedure )
+
+2. type safe  (ye sirf uss memory location ko access kr sakta hai ja per isko permission milli ho) for security
+
+3. object oriented 
+
+4. structure programming language  (means ke hum function ke through large problem ko solve kr sakte hai (break the code in small peaces))
+
+5. modern programming language  (because it is based on current trend and it's through we can build scalable or rubust application)
+
+6. component oriented (iske through humm more rubust or scalable application bna sakte hai)
+
+7. Fast speed (compilation time or execution of time is very fast in C-Sharp)
+
+
+
+-------------------------------------------------------- Data Types ------------------------------------------
+
+#In-build-type (value type):
+
+-> int, char , float , double;
+
+
+# User-defined-type (value type):
+
+-> Enum, Structure
+
+
+
+#In-build-type(Reference type)
+
+-> objects , string
+
+# user-defined-type (Reference type)
+
+-> classes , interfaces
+
+
+
+
+---------------------------------------------------------- Operators -----------------------------------------
+
+1.Arithmetic Operators (+,-,*,/)
+
+2.Relational Operators (<,>,<=,>=,!=,==)
+
+3.Logical Operators    (&& , ||)
+
+4.Bitwise Operators    (& , |)
+
+5.Assignment Operators (+=,-=)
+
+6.Unary Operators
+
+7.Ternary Operators    (?'':'')
+
+8.Misc Operators
+
+
+
+---------------------------------------------------------- Keywords ----------------------------------------
+
+- key words are the reserved words for language we can not use this words in variable decleration time or in function... etc
+
+
+--------------------------------------------------------- Functions ----------------------------------------
+
+- function are used for reusebuility means write one use every where.
+- it's through we can break the complex problem in small peace which through problem easly solved.
+- we can easly maintain the code
+
+
+There are two types of functions------------
+
+1. Parametrised function: In  the parametrised function we passed the parameter which through we can perform function as a dynamic
+   or we can access the dynamic value
+
+EX:
+
+ public int add( int a , int b)
+        {
+            int c = a + b;
+            Console.WriteLine("Addition of two number: " + c);
+            return c;
+        }
+
+
+---------------- Importat ( Call by value): it's same as the parametrised function work
+
+1.Note*: (it does not modify the actual value)
+
+
+---------------- Important (Call by Reference): it's same as the parametrised function work
+
+1.Note*:(it's change the original value)
+
+EX:
+
+ public void callByRef(ref int p, ref int q)  // call by ref
+        {
+            p = p * 2;
+            q = q * 2;
+            int c = p+ q;
+            Console.WriteLine("Call By Reference: " + c);
+        }
+
+EX:
+
+ 		Console.WriteLine("Before call by Ref value "+" Value track [x]: " + x + " Value track [y]: " + y);
+
+            ved.callByRef(ref x, ref y);
+
+            Console.WriteLine("After call by Ref value "+" Value track [x]: " + x + " Value track [y]: " + y);
+
+
+2. non-parametrised function : In the non-parametrised function we don't pass the parameter
+
+EX: 
+
+ public int add()
+        {
+            Console.WriteLine("Addition of two number: ");
+        }
+
+
+
+---------------------------------------------------- Array -------------------------------------------------
+- Same as java array
+
+Note*: in 2D-Array 
+
+java syntax-    int [][] arr = new int[i][j];
+
+C-Sharp syntax-   int[,] arr = new int[i,j];
+
+
+
+
+
+---------------------------------------------------- Params -----------------------------------------------
+-- param mai hum multiple types kee value declare ke sakte hai (string , int......etc)
+-- jab hume ye nai pta hota hai kee kitne parameter initilize krne hai hmme tab humm param ka use krte hai
+
+EX: 
+
+using System;  
+namespace AccessSpecifiers  
+{  
+    class Program  
+    {  
+        // User defined function  
+        public void Show(params object[] items) // Params Paramater  
+        {  
+            for (int i = 0; i < items.Length; i++)  
+            {  
+                Console.WriteLine(items[i]);  
+            }     
+        }  
+        // Main function, execution entry point of the program  
+        static void Main(string[] args)  
+        {  
+            Program program = new Program(); // Creating Object  
+            program.Show("Ramakrishnan Ayyer","Ramesh",101, 20.50,"Peter", 'A'); // Passing arguments of variable length  
+        }     
+    }  
+}  
+
+
+
+
+
+---------------------------------------------------- Object -----------------------------------------------
+
+- Object is a real world entity like chair , pain , cat....etc
+
+- In other words object describe the  state and behaviour ob object (state-> data, behaviour-> functionality)
+
+
+---------------------------------------------------- Class -------------------------------------------------
+
+- class is a  collection of objects (we can also say it is a blueprint of object)
+
+
+---------------------------------------------------- Constructor ------------------------------------------
+- it is a special type method . it's invoked automatic at the object creation time
+- constructor name must be same as class name  or enum name
+
+There are two types of constructor
+
+1. Parametrised 
+
+EX:
+
+public emp(int s , int s1)
+{
+this.s = s;
+this.n = n ;
+}
+
+2. non-parametrised (Default constructor)
+
+EX:
+
+public emp()
+{
+}
+
+--------------------------------------------------- Destructor ---------------------------------------------
+
+- it is used to destroye object.
+- it is called automaticaly.
+- we can not apply access modifier here.
+- we can call only one destructor.
+
+
+EX:
+
+    ~Employee()  
+        {  
+            Console.WriteLine("Destructor Invoked");  
+        }  
+
+
+--------------------------------------------------- Static --------------------------------------------------
+
+- it is a keyword or modifier we can apply static keyword in method , variables , constructor , class..etc
+- for accessing static member we do not need to create instance  for accessing static member we can directly
+  access the static member
+
+- it is used for memory management (mtlb ke ye sirf class ke execution ke time per memory lega  naa kee instance creation time per)
+
+
+--------------------------------------------------- Static Class ---------------------------------------------
+
+- static class can conatin only static member
+
+
+-------------------------------------------------- Static Constructor ----------------------------------------
+
+- static constructor can not used any access specifier and parameter
+
+
+
+--------------------------------------------------- Struct ---------------------------------------------------
+
+- class and struct both are represent bluprint of object
+- struct can not applied in inheritance
+- struct can be applied in interface
+
+
+
+--------------------------------------------------- Enum  ---------------------------------------------------
+
+-it is used to store set of named constants(days,month).
+
+- we can declare Enum inside or outside of the class and Struct.
+
+	(Enum constants has default values which starts from 0 and incremented to one by one. 
+	But we can change the default value.)
+
+Points to remember
+
+.enum has fixed set of constants
+
+.enum improves type safety
+
+.enum can be traversed
+
+
+-------------------------------------------------- Properties ----------------------------------------------
+
+- it does't have storage location. it is just like fields.
+- it can be read only or write only.
+- we make fields as a private which means we can not access those fields outside classes
+
+
+
+
+-------------------------------------------------- Single Inheritance(IS-A Relationship) ----------------------------------------------
+- it is used to inherit parent class property to child class which through we can easly access the parent class 
+  property
+
+
+Advantages:
+1. Code reusebuility
+
+
+Important Notes:   C-Sharp Does not support Multiple inheritance in class  
+
+
+
+--------------------------------------------------- Aggregation(HAS-A Relationship)-------------------------------------------------
+
+- it's through we can also access the parent class property in another class without using inheritance
+- Class ka reference pass krte hai second class mai jiske through humm access kr sakte hai
+
+
+
+
+
+EX:
+
+
+using System;  
+public class Address  
+{  
+    public string addressLine, city, state;  
+    public Address(string addressLine, string city, string state)  
+    {  
+        this.addressLine = addressLine;  
+        this.city = city;  
+        this.state = state;  
+    }  
+}  
+   public class Employee  
+    {  
+       public int id;  
+       public string name;  
+       public Address address;//Employee HAS-A Address  
+       public Employee(int id, string name, Address address)  
+       {  
+           this.id = id;  
+           this.name = name;  
+           this.address = address;  
+       }  
+       public void display()  
+       {  
+           Console.WriteLine(id + " " + name + " " +   
+             address.addressLine + " " + address.city + " " + address.state);  
+       }  
+   }  
+   public class TestAggregation  
+   {  
+        public static void Main(string[] args)  
+        {  
+            Address a1=new Address("G-13, Sec-3","Noida","UP");  
+            Employee e1 = new Employee(1,"Sonoo",a1);  
+            e1.display();  
+        }  
+    }  
+
+
+
+------------------------------------------------------ Method Overloading --------------------------------------
+
+Having two or more methods with same name but different in parameters, is known as method overloading in C#.
+
+Advantages:
+
+1. Code readbility: 
+  (agar humme same name ka action perform krna hai with defferent parameter to humee overloading ke use krna chaiye)
+
+Hot to achive Method overloading:
+
+1.	By changing number of arguments (parameter)
+
+EX:
+
+ public void addition(int a, int b)
+        {
+            int add = a + b;
+            Console.WriteLine("Addition of two numbers: " + add);
+        }
+        public void addition(int a,int b,int c)
+        {
+            int add = a + b + c;
+            Console.WriteLine("Addition of three numbers: " + add);
+        }
+
+
+2.	By changing data type of the arguments (Return type value)
+
+EX:
+
+ public void addition(float a, float b)
+        {
+            float add = a + b;
+            Console.WriteLine("Float add: " + add);
+        }
+
+
+
+
+
+----------------------------------------------------- Base Keyword (Super() same as java) -----------------------------------------
+
+- For accessing method(parent)
+- for accessing class members(parent)
+- for accesing constructor(parent)
+
+Note: (Without base keyword ke bee access kr sakte hai yee sab directly)
+
+---------------------------------------------------- Poly Morphism -----------------------------------------------
+
+- with the help of this we can not perform single task in different ways
+
+Types of polymorphism:
+
+1. compile time (early binding)(overload)
+
+2. Runtime (late binding)(override)
+
+
+
+---------------------------------------------------- Sealed Class / Method ----------------------------------------------
+
+- if we used Sealed keyword in class that's mean we can not inherit this class
+- if we applies Sealed keyword in method that's mean we can not override method
+
+Note*: Local variable can not be sealaed
+
+
+
+
+---------------------------------------------------- Abstract Method ---------------------------------------------
+
+- it does not provide the implementation details to the user its's provide functionality to the user only
+- it has abstract and non- abstract method
+- class must be abstract
+
+Note*: internally abstract method include Virtual keyword
+
+
+EX:
+
+
+using System;  
+public abstract class Shape  
+{  
+    public abstract void draw();  
+}  
+public class Rectangle : Shape  
+{  
+    public override void draw()  
+    {  
+        Console.WriteLine("drawing rectangle...");  
+    }  
+}  
+public class Circle : Shape  
+{  
+    public override void draw()  
+    {  
+        Console.WriteLine("drawing circle...");  
+    }  
+}  
+public class TestAbstract  
+{  
+    public static void Main()  
+    {  
+        Shape s;  
+        s = new Rectangle();  
+        s.draw();  
+        s = new Circle();  
+        s.draw();  
+    }  
+}  
+
+
+------------------------------------------------ Interface -----------------------------------------------------
+
+- it is used to achieve fully abstraction because here is not any non-abstract method
+- it's through we can perform multiple inheritance
+
+
+------------------------------------------------ Type casting -----------------------------------------------
+
+- it is used to convert one data type value to another data type
+
+
+Important notes: 
+
+- var is a keyword, it is used to declare an implicit type variable,
+  that specifies the type of a variable based on initial value.
+
+
+------------------------------------------------ Dispose -----------------------------------------------------
+
+- it is used to free memory (unused object)Garbage collector
+
+
+
+------------------------------------------------ Static/ReadOnly/Const-----------------------------------------
+
+1.Constant:
+
+Constant fields are defined at the time of declaration in the code snippet, 
+because once they are defined they can't be modified. By default a constant is static, so you can't define them static from your side.
+
+It is also mandatory to assign a value to them at the time of declaration otherwise it will give an error during compilation of the program snippet. 
+That's why it is also called a compile-time constant.
+
+EX: 
+
+void Sum(int j)  
+{  
+const int i = 9, k = 2;  
+const int A = i + k;  
+} 
+
+--------------------|Points to Remember|
+
+1.Compile-time constant
+2.Can't be declared static
+3.Can't be modified or changed
+4.Can be of any type of Access Modifier
+5.Local scope
+6.Needs to get initialized
+7.Declared at the time of declaration
+
+
+2.Readonly:
+
+A Readonly field can be initialized either at the time of declaration or within the constructor of the same class. 
+We can also change the value of a Readonly at runtime or assign a value to it at runtime (but in a non-static constructor only).
+For that reason a Readonly field is also called a run-time constant.
+
+EX:
+
+class ReadOnly  
+{  
+   readonly int i;  
+   public ReadOnly( )  
+   {  
+       i = 11;  
+       Console.WriteLine(i);  
+   }  
+} 
+
+------------------------|Points to Remember|
+
+1.Run-time constant
+2.It can be static
+3.Global scope
+4.Can be declared in the constructer class
+5.Generally public
+
+
+3.Static:
+
+The static keyword is used to declare a static member. 
+If we are declare a class as a static class then in this case all the class members must be static too. 
+The static keyword can be used effectively with classes, fields, operators, events, methods and so on effectively.
+
+EX:
+
+class ReadOnly  
+{  
+    static int i = 11;  
+    public static void disp()  
+    {  
+        Console.WriteLine(i);  
+    }  
+} 
+
+---------------------|Points to Remember|
+
+1.Can't be used with indexers
+2.Works with constructors too
+3.By default it is private
+4.Can be parameterized or public too
+5.If its applied to a class then all the class members need to be static
+
+
+
+
+--------------------------------------------------------- Static Constructor -----------------------------------
+
+1.C# static constructor cannot have any modifier or parameter.
+2.C# static constructor is invoked implicitly. It can't be called explicitly.
+
+EX:
+
+using System;  
+   public class Account  
+    {  
+        public int id;   
+        public String name;  
+        public static float rateOfInterest;  
+        public Account(int id, String name)  
+        {  
+            this.id = id;  
+            this.name = name;  
+        }  
+        static Account()  
+        {  
+            rateOfInterest = 9.5f;  
+        }  
+        public void display()  
+        {  
+            Console.WriteLine(id + " " + name+" "+rateOfInterest);  
+        }  
+   }  
+   class TestEmployee{  
+       public static void Main(string[] args)  
+        {  
+            Account a1 = new Account(101, "Sonoo");  
+            Account a2 = new Account(102, "Mahesh");  
+            a1.display();  
+            a2.display();  
+  
+        }  
+    }  
+
+-------------------------------------------------- Private Constructor ---------------------------------------
+
+1.One use of a private constructor is when we have only static members.
+2.It provides an implementation of a singleton class pattern
+3.Once we provide a constructor that is either private or public or any, 
+  the compiler will not add the parameter-less public constructor to the class.
+
+
+EX:
+
+using System;
+namespace defaultConstractor
+{
+    public class Counter
+    {
+        private Counter()   //private constrctor declaration
+        {
+        }
+        public static int currentview;
+        public static int visitedCount()
+        {
+            return ++ currentview;
+        }
+    }
+    class viewCountedetails
+    {
+        static void Main()
+        {
+            // Counter aCounter = new Counter();   // Error
+            Console.WriteLine("-------Private constructor example by vithal wadje----------");
+            Console.WriteLine();
+            Counter.currentview = 500;
+            Counter.visitedCount();
+            Console.WriteLine("Now the view count is: {0}", Counter.currentview);
+            Console.ReadLine();
+        }
+    }
+}
+
+
+
+------------------------------------------------------- Manage Code vs UnManage Code------------------------------
+
+1. Managed code is the code which is managed by the CLR(Common Language Runtime) in .NET Framework. 
+
+2. Whereas the Unmanaged code is the code which is directly executed by the operating system. 
+   
+
+Below are some important differences between the Managed code and Unmanaged code: 
+
+
+
+               Managed Code                                                     Unmanaged Code
+
+
+It is executed by managed runtime environment or managed by the CLR.				It is executed directly by the operating system.
+
+It provides security to the application written in .NET Framework.				It does not provide any security to the application.
+
+Memory buffer overflow does not occur.									Memory buffer overflow may occur.
+
+It provide runtime services like Garbage Collection, exception handling, etc.			It does not provide runtime services like Garbage Collection, exception handling, etc.
+
+The source code is compiled in the intermediate language known as IL or MSIL or CIL.	The source code directly compiles into native languages.
+
+It does not provide low-level access to the programmer.						It provide low-level access to the programmer.
+
+
+
+-------------------------------------------------- .Net Vs Asp.Net -------------------------------------------
+
+						.NET															ASP.NET
+1.	.NET is a software development framework aimed to develop Windows, Web and Server based applications.			ASP.NET is a main tool that present in the .NET Framework and aimed at simplifying the creation of dynamic webpages.
+
+2.	Server side and client side application development can be done using .NET framework.					You can only develop server side web applications using ASP.NET as it is integrated with .NET framework.
+
+3.	Mainly used to make business applications on the Windows platform.								It is used to make dynamic web pages and websites using .NET languages.
+
+4.	Its programming can be done using any language with CIL (Common Intermediate Language) compiler.	
+		Its programming can be done using any .NET compliant language.
+
+
+
+
+-------------------------------------------------------------- Access Modifier ----------------------------------------------------------------------
+
+1. public: it will visible in all class (through inheritance or  class object)
+
+2. private: the visibility of this only in same class not outer class but we can access these type member through get() or set() method
+
+3 protected: the visibility of this only in derived class (we can not access directly class object)
+
+4. internal: the accessbility of this only in same assembly means
+
+
+
+
+---------------------------------------------- Extensian Method --------------------------------------------
+
+- with the help of this method we can add new method in exiting method without modifying exixiting class
+- Extension methods are static methods
+
+
+----------------------------------------------------- Sorted List------------------------------------------------------------------------------
+
+- it store value on the basis of  keys
+
+- it's consume less memory compare to sortedDictionary
+- sortedDictionary is faster than sortedList
+
+
+
+---------------------------------------------- Memory Management --------------------------------------------
+
+******************** Important
+
+
+
+
+* can we create nullable array or arraylist   (yes we can create nullable ArrayList )
+* Array is type safe
+* ArrayList is not type safe
+
+***************************************** Assignment in HashTable*********************************************
+
+*Remove
+*Clear
+*containsValue
+
+
+
+**************************************** Assignment in  stack ******************
+*push
+*pop
+*peek
+*contains
+*clone
+
+**************************************** Assignment in  Queue ******************
+*Enque
+*Deque
+*peek
+*contains
+*clear
+
+
+**************************************** Assignment in  SortedList ******************
+*SelfStudy
+
+
+************************************** Assignment in List ************************************
+
+*selfStudy
+
+
+************************************** Assignment 22-07-022 *********************************************
+
+perform array method through  function( ) and pass array as parameter   (Done)
+
+
+IEnumarable: fetch all data fromserver to client
+
+IQueryable: fetch data specific only from server sent to the client
+
+
+**************************************** Assignment in Dictionary*************************
+implementation  (Done)
+
+
+**************************************** Assignment in List<> *****************************
+
+Store class Object in List<>  (Done)
+
+
+************************************** Assignment in wrapper class ****************************
+
+convert primitive to object (Pending)
+
+
+**************************************** Study about Linq  *********************************************
+
+
+**********************************************Assignments  class (25-07-022) ************************
+
+abstract class through all things(Raviraj)(pending)
+
+Enum implementation(Pending)
+
+Tuples(Pending)
+
+distructore and dispose

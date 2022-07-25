@@ -1,0 +1,209 @@
+********************************************************************** CSS ******************************************************************
+ 
+1. CSS is the language we use to style an HTML document.
+
+CSS describes how HTML elements should be displayed.
+
+This tutorial will teach you CSS from basic to advanced.
+
+
+
+
+
+_______________________________________________________________________ CSS Selector ______________________________________________________________
+
+1. element selector:  issmai particular element ko select krke css apply krte hai
+
+EX: 
+ p 
+{
+color:red;
+}
+
+2. id selector: issmai element kee id ko pick krke css apply krte hai (ye uniqe hota hai ek id se ekk he jga per css lgegi)
+
+EX:   
+#col
+{
+color:red;
+}
+
+
+3. class selector:  issmai hum element ke class ke basis css apply krte hai  (issmai hum ek class se multiple times bar resuse kr sakte hai)
+
+EX: 
+
+.row
+{
+color:red;
+}
+
+
+4. universal selector:  iskke through entire webpage mai apply krte hai
+
+EX:
+
+*
+{
+color:red;
+}
+
+
+5. grouping selector: ismai hum multiple element ko select krke css lgate hai ekk hee sathh
+
+EX:
+
+h1,p,.cl
+{
+color:red;
+}
+
+6. parent-to-child selector: issmai hum  parent to child css apply krte hai
+
+EX:
+
+h1 p small .col           // h1->p->->small->.col    mai css aplly hoga sirf(.col maii)
+{
+color:red;
+}
+
+
+7.  element.class: agar humee element ke class mai sirf css apply krni ho to yee use krnge(jissai kee keval uss class mai css apply hogi)
+
+EX:
+p.amit
+{
+color:red;    // kewal p mai css apply hogi (agar humne multiple jgaa same class declare kee hogi too waa css apply nai hogi)
+}
+
+
+
+
+**************************************************   Three Ways to Insert CSS
+There are three ways of inserting a style sheet:
+
+1.External CSS
+2.Internal CSS
+3.Inline CSS
+
+
+
+______________________________________________________________________________________COLORS____________________________________________________________
+
+1. we can apply colors three ways'
+
+
+- style="background-color:red";
+
+- style="background-color:#defgh";    // #rrggbb  this is a hexadecimal typee color
+
+- style="background-color:rgb(123,234,222)";
+
+- style="background-color:rgba(0,0,0,.4)";
+
+
+
+
+
+________________________________________________________________________Background property _____________________________________________________________
+
+
+1. background-color:   for setting background color
+
+2.background-image:  for setting background image 
+
+EX: 
+p {
+  background-image: url("paper.gif");
+}
+
+
+3. background-repeat:  if you want to reapat your image so use (background-repeat: repeat)
+
+   background-repeat: repeat   // img repeat hogi
+
+   background-repeat: no-repeat   // img repeat nai hogi
+
+   background-repeat: intial:    // ismai img porri nai aati hai (it's a default value always in every property in css)
+
+   background-repeat: inherit:   // samee porri nai aati hai
+
+
+
+4.  background-position: img kee position ko set krne ke liye krte hai
+
+
+    background-position: top      // ismai image center mai set ho jati hai
+
+    background-position: bottom   // img thodi see cutttne lgti hai uper se
+
+    background-position: left   //  img ko left mai set kr dega
+
+    background-position: right   // img ko right mai set kr dega
+
+---->  position Property:
+
+left top
+left center
+left bottom
+right top
+right center
+right bottom
+center top
+center center
+center bottom
+
+
+
+
+5. background-attachment:  isske through humm image ko attach krte hai web page mai
+
+
+   background-attachment:fixed    // iske through hmara content scroll hoga sirf img nai hogi
+
+   background-attachment: scroll  // iske through hmara content or img dono scroll hoga
+
+
+
+
+
+1.Note:   ()
+
+-static   /// it's the normal or default
+-relative  // it's just like center the element
+-fixed        //
+
+EX:
+div.fixed {
+  position: fixed;
+  bottom: 0;                   /// ismai content fixed rhega bottom mai right side
+  right: 0;
+  width: 300px;
+  border: 3px solid #73AD21;
+}
+
+
+-absolute         //  ismai position nearest hoti relative ke means kee relative ke ander he iskl content ayega
+-sticky      //  ismai content fixed rhega 
+
+
+ position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 5px;
+
+
+
+******************************************************************** Position ************************************************************************
+
+1. Position:static    (it's a default position)
+2. Position:relative  (after declaring this then this become a parent )
+3. position:absolute  (after declaring relative property this propert work as child  we can perform inside parent anything)
+4. Position: fixed     (for fixing position)
+5. position: sticky  (for fixing middle value)
+
+
+
+
+
+**************************************************************** Outline ***************************************************************

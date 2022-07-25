@@ -1,0 +1,322 @@
+Notes- sql is not case sensitive
+
+Notes: 	-- desc command is not working
+		-- modify command is not working
+		-- for showing table struture we need to use this command   (exec sp_help employe;)
+
+
+
+********************************************************-SQL-*************************************************
+1- Select : this command for used to retrive the data from database 
+
+EX: select * from employee;
+
+2- Distinct: this clause is used to give unique value from table (we can not apply multiple distinct clause in multiple columns)
+
+EX: select DISTINCT country from employee;
+
+EX: select DISTINCT * from employee; (it's wrong statement)
+
+3- Count(): it is used to count the number of records in tables (we can not apply in multiple columns)
+
+EX: select count(*) from employee;
+
+4- Where clause : it is used to filter the records on the basis of conditions;
+
+EX: select * from employee where id > 4;
+
+*** Between-> EX-  select *from products Where price Between 70 and 90;
+
+*** IN     -> EX select *from products where city IN('kanpur','pune');
+
+*** LIKE   -> EX: select *from customers where customername LIKE "s%"; (name start with s character(s/S))
+
+5- ***************************SQL AND , OR , NOT  Operators*********************************
+
+EX:
+ 	SELECT * FROM Customers
+	WHERE Country='Germany' AND (City='Berlin' OR City='München');
+
+
+6-***************************** ORDER BY CLAUSE ********************************************
+
+1. ORDER BY(ASC) : it's sort the data in asscending order
+
+EX: select *from employee
+    order by name;
+
+2. ORDER BY(DESC): it's sort the data in descending order
+
+EX: select *from employee
+    order by name desc;
+
+7-*********************************************** CREATE DATABASE ****************************************-
+
+1. CREATE DATABASE employee;
+
+(for checking database list type this command (show databases))
+
+8-*********************************************** DROP DATABASE ******************************************-
+
+1. DROP DATABASE employee
+
+9-*********************************************** BACKUP DATABASE ***************************************-
+
+1. BACKUP DATABASE employee
+   TO DISK = 'D:\backups\employee.bak';      // this command backup employee database
+   WITH DIFFERENTIAL;                        // this command is used to backup previous changes done by user only
+
+
+10********************************************** CREATE TABLE **********************************************
+
+EX: Create table employee(id int , name varchar(10), email varchar(30));
+
+
+***************Create Table Using Another Table
+
+EX: create table student AS
+	select id , name , email from employee;
+
+
+
+11-********************************************** DROP TABLE AND TRUNCATE TABLE ******************************
+
+1. DROP: it is used to drop the table with all data (also table schema);
+
+
+EX: drop table employee;
+
+2. TRUNCATE: it is used to delete the all records from table (it's not delete the table schema)
+
+EX: truncate table employee;
+
+
+12********************************************** ALTER TABLE ************************************************
+
+1. ALTER: it is used to Add columns , delete columns or modify columns in existing table;
+          (and also used for delete the constraints)
+
+
+Add:   	ALTER TABLE Customers
+		ADD Email varchar(255);
+
+Delete:   	ALTER TABLE Customers
+	    	DROP COLUMN Email;
+
+Modify:	ALTER TABLE table_name
+		MODIFY column_name datatype;
+
+
+13************************************************ CONSTRAINTS **********************************************
+
+                            (SQL constraints are used to specify rules for data in a table.)
+
+We can use constraints at table creation time or with thehelp of alter command
+
+There are some constraints are following---
+
+1.NOT NULL - 	Ensures that a column cannot have a NULL value
+
+2.UNIQUE - 		Ensures that all values in a column are different
+
+3.PRIMARY KEY - 	A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table
+
+4.FOREIGN KEY - 	Prevents actions that would destroy links between tables
+
+5.CHECK - 		Ensures that the values in a column satisfies a specific condition
+
+6.DEFAULT - 	Sets a default value for a column if no value is specified
+
+7.CREATE INDEX - 	Used to create and retrieve data from the database very quickly
+
+
+1. NOT NULL:
+
+EX: 	ALTER TABLE Persons
+	MODIFY Age int NOT NULL;
+
+EX:  	CREATE TABLE Persons (
+    	ID int NOT NULL)
+
+2. UNIQUE:  it's takes only unique value  (unique key ko hum multiple column mai declare kr sakte hai per primary key mai aisa nai kr sakte hai)
+
+EX:
+
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),                                        // best example hai aisa hee use krna hai sabke liye
+    Age int,
+    CONSTRAINT UC_Person UNIQUE (ID,LastName)
+);
+
+
+EX: for Alter command
+
+ALTER TABLE Persons
+ADD CONSTRAINT UC_Person UNIQUE (ID,LastName);
+
+
+3. PRIMARY KEY: it's contain only unique value and it can not contain any null values;
+
+EX:
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    CONSTRAINT PK_Person PRIMARY KEY (ID,LastName)
+);
+
+EX: ALter table through
+
+ALTER TABLE Persons
+ADD CONSTRAINT PK_Person PRIMARY KEY (ID,LastName);
+
+
+4. FOREIGN KEY: it's target the primary key of another table
+
+EX:
+CREATE TABLE Orders (
+    OrderID int NOT NULL,
+    OrderNumber int NOT NULL,
+    PersonID int,
+    PRIMARY KEY (OrderID),
+    CONSTRAINT FK_PersonOrder FOREIGN KEY (PersonID)
+    REFERENCES Persons(PersonID)
+);
+
+EX: Alter Table
+
+ALTER TABLE Orders
+ADD CONSTRAINT FK_PersonOrder
+FOREIGN KEY (PersonID) REFERENCES Persons(PersonID);
+
+
+5. CHECK: it is used to store value in the table on the basis of condition
+
+EX:
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    City varchar(255),
+    CONSTRAINT CHK_Person CHECK (Age>=18 AND City='Sandnes')
+);
+
+EX: Alter table
+
+ALTER TABLE Persons
+ADD CONSTRAINT CHK_PersonAge CHECK (Age>=18 AND City='Sandnes');
+
+
+6. DEFAULT: it is used to set default value in the table;
+EX:
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    City varchar(255) DEFAULT 'Sandnes'
+);
+
+
+7. INDEX: 
+The CREATE INDEX statement is used to create indexes in tables.
+Indexes are used to retrieve data from the database more quickly than otherwise. 
+The users cannot see the indexes, they are just used to speed up searches/queries.
+
+EX: CREATE INDEX idx_pname
+ON Persons (LastName, FirstName);
+
+
+14******************************************************* AUTO INCREMENT ************************************
+
+1. Auto_increment: it is used to generate unique number automatic when the new record is inserted in the table
+
+EX: for mysql (database)
+
+ CREATE TABLE Persons (
+    Personid int NOT NULL AUTO_INCREMENT,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    PRIMARY KEY (Personid)
+);
+
+
+
+
+15****************************************************** VIEW TABLE *****************************************
+
+1. VIEW TABLE: it's creates the virtual table on the basis of sql query join
+
+EX:
+
+CREATE VIEW [Brazil Customers] AS
+SELECT CustomerName, ContactName
+FROM Customers
+WHERE Country = 'Brazil';
+
+
+16****************************************************** Insert record ***************************************
+
+1. INSERT: it is used to insert the data in the table 
+
+EX: insert into employee (name ,email) values('vedant','vedant@gmail.com');
+
+
+17***************************************************** Update record  **************************************
+
+1.UPDATE: it is used to update the record in the table 
+
+EX; Update employee
+    set name = 'lavi',
+    where id =2;
+
+
+18 *************************************************** Delete record *****************************************
+
+1. DELETE: it is used to delete the record from the table (ALL record or specific record)
+
+EX: delete from employee;    // it will delete all record
+
+EX: delete from employee
+    Where id = 4; 	     // it will delete specific record
+
+
+
+19************************************************** Triggers ************************************************
+
+-> ye automatic fire hota hai jab be koi event occur hota hai(execute) tab ye apne Aap he execute ho jata hai
+Ex: DML , DDL  and Database operation like (LogOn, LogOff....etc)
+
+--- isko hum table or schema or database mai define kr sakte hai
+
+--------Benefits of Triggers:
+1.  Gain strong control over  security purpose
+2. Audtiting
+3. preventing invalid transaction
+
+Syntax:
+
+create [or replace] trigger triger_name
+{Before|After}                       ------------------ means ke trigger phale lgana hai kee bad mai 
+{Insert|Update|Delete}               ------------------ means kiss operation mai perform krwane chate hoo
+ ON table_name                       ------------------  table mai lgana ho to ye syntax use kro
+     OR        
+For each row                         ------------------ Agar every row mai trigger lgana ho to ye syntax use kro
+
+Declare
+---declare statements like variables---           
+
+Begin 
+---Executable-statements---                         -------- Logic
+
+Ends
+
+
+20********************************************* Cursor *********************************************************
+
+---> jab hume row by row data fetch krna hota hai tab humm cursor ka use krte hai

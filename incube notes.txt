@@ -1,0 +1,702 @@
+
+git- password: Vedantmishra@123
+git user name: vedant-mishra-ix
+
+
+
+--> Type Script javascript ke saree features ko use kr sakta hai or kuch additional features hote hai type script mai jaise ki data type
+--> java script mai hum data type use nai krte hai 
+--> Type script  developed by microsoft
+
+--> hum typescript ko directly run nai kr sakte hai run krne ke liye javascript mai convert krna padega
+--> TS file ko jab hum run krte hai (tsc) ke through to automated (JS) mai convert ho jata hai
+
+****************Install******************
+--> npm and node installed
+--> npm install -g typescript
+
+
+Note------> jab hum kabhi (TS file ke ander class bnate hai to duplicate identifier found ki error Aati hai usko resolve krne ke liye hum export{} ka use krte hai)
+
+Note------> file to automatic run krne ke liye (tsc file.ts --waatch) likte hai jissai output browser ki jga terminal mai show hone lgega 
+
+
+
+
+
+********************************************************************(Type Script)*************************************************
+1-  typscript is javascript with added syntax (types)  or typescript compiler converted typesript code into javascript
+
+2- type script is two types contain data type
+   * simple type (primitives types value like 'number','string','boolean')
+   * special type ('any' , 'unknown' , 'never' ,'undefined & null') (TypeScript has special types that may not refer to any specific type of data.)
+
+
+**** Any:  if we are not using so it's enables the type checking in the variable
+           Ex: let u = true     // it's a boolean value
+                u = "vedant"    // it's a string value    
+                console.log(Math.round(u))  // so it's gives error because here type checking is enable  
+
+
+**** Any: if we use (Any) so it's desable the type checking in the varibles
+
+
+          Ex: let u : any = true
+                u = "vedant"
+                console.log(Math.round(u));    // so it will not give the error because here we are using (any) type data type 
+
+
+note:  any can be a useful way to get past errors since it disables type checking, but TypeScript will not be able provide type safety, and tools which rely on type data, such as auto completion, will not work. Remember, it should be avoided at "any" cost...
+
+
+****Unknown:   unknown is a similar, but safer alternative to any (unknown is best used when you don't know the type of data being typed. To add a type later, you'll need to cast it.
+
+Casting is when we use the "as" keyword to say property or variable is of the casted type.)
+
+
+
+
+**** Never:  never effectively throws an error whenever it is defined.
+
+
+            Ex:  let x: never = true; // Error: Type 'boolean' is not assignable to type 'never'.
+
+
+
+
+****************note:   These types don't have much use unless strictNullChecks is enabled in the tsconfig.json file.
+
+
+******************************************************************** Array *************************************************
+
+In type script has a special syntax for array     EX-1:     let  ved: string[] = [];           Ex-2 : let ved = []; // jab ye khali ho                                                                                                                        tabhi otherwise no
+                                                          ved.push("ravu");                         ved.push("bed");   
+                                                          ved.push("vbn");                          ved.push(2); 
+                                                                               
+                                                          console.log(ved);                         console.log(ved);
+
+
+Ex-1  mai humm sirf string value he add kr sakte hai
+Ex-2  mai kissi bee type ki value add kr sakte hai  
+ 
+
+
+
+1. Readonly:    The readonly keyword can prevent arrays from being changed.(mtlb hum value change or add nai kr sakte hai readonly lgane ke bad)
+
+Ex--
+
+const names: readonly string[] = ["Dylan"];
+
+names.push("Jack"); 
+
+console.log(names);
+
+
+******************************************************************* Tuples **************************************************
+
+1. Tuples:  Tuples are great because they allow each element in the array to be a known type of value.
+
+
+Ex:
+// define our tuple
+let ourTuple: [number, boolean, string];
+
+// initialize correctly
+ourTuple = [5, false, 'Coding God was here'];
+
+console.log(ourTuple);
+
+
+Note:      We need to follow sequence of data type otherwise we will got error
+
+
+
+2. Readonly Tuple : it is same as Array
+3. Destructuring Tuples
+4. Named tuples
+
+
+
+
+
+
+******************************************************************** ObjectTypes **************************************************
+
+const car: { type: string, model: string, year: number } = {
+  type: "Toyota",
+  model: "Corolla",
+  year: 2009
+};
+
+console.log(car);
+
+
+
+1..   Index Signatures:   Index signatures can be used for objects without a defined list of properties.
+
+Ex:    const nameAgeMap: { [index: string]: number } = {};
+
+nameAgeMap.Jack = 25; // no error
+
+nameAgeMap.vedant = 1234; // Error: Type 'string' is not assignable to type 'number'.
+
+console.log(nameAgeMap);
+
+// issmai hum apne according index object bna sakte hai
+
+
+************************************************************ Union ****************************************************************8
+union ki help se hum  variable mai many types ki value stoe krwa sakte hai  , number , string........etc [ |,(or)]
+
+
+Ex:   let ved: string | number | boolean;
+ved='ve';
+ved=123;
+console.log(ved)
+
+
+************************************************************ Interface ************************************************************
+interface ka use  variables ke liye data type fix krna hota hai (iska use hum object mai ya fir classes mai krte hai)
+
+
+
+Ex:
+
+interface vedft
+{
+name:string,
+age:number
+}
+
+let name: vedft {name:'abhi' , age: 12}
+
+console.log(name);
+
+
+*********************************************************** Function ***********************************************************
+
+function jaisa hum javascript mai bnate hai waisa he yaa per be bnate hai but diiference ye hota hai ya per ki yaa per hum function ka type
+declare kr sakte hai (number,string,boolean) jo ki humm javascript mai nai kr sakte hai
+
+
+
+
+Ex:  function ved (a:number, b?:number):number
+{
+return (a, b)
+
+}
+
+console.log(ved(12,45);
+ 
+
+where: b?:number ->  optional value aise declare krte hai
+
+
+
+Rest Parameters-> Rest parameters can be typed like normal parameters, but the type must be an array as rest parameters are always arrays.
+
+Ex: 
+
+function add(a: number, b: number, ...rest: number[]) {
+  return a + b + rest.reduce((p, c) => p + c, 0);
+}
+
+console.log(add(10,10,10,10,10));
+
+
+
+*************************************************************** Classes ***********************************************************
+
+Same as java concept
+-inheritance
+- interface
+- overridden (override keyword)
+- abstract class
+- members visibility (public, private, protected)
+
+
+
+********************************************************** Modules ******************************************************************
+---->  same react ki taree work krta hai 
+
+---->  file ko dusre file mai import krna
+
+---->  phale export kro fir import then use krokr deta hai
+
+---->  module hmarae application ki performance increase 
+
+----> An AngularJS module defines an application.
+
+      . The module is a container for the different parts of an application.
+
+      . The module is a container for the application controllers.
+
+      . Controllers always belong to a module
+
+module banane ke process----->
+1. ng generate module (modulename)
+2. module created with folder
+3. then humm iss module ke ander component bnaa sakte hai 
+5. abbb hum iss component ko execute krna chate hai to hume  iss component ko issi wale module mai jakee export krna hoga tab jake runn hoga
+6. orr hum iss module ko default wale module mai jake import kr degnge jissai humara new component execute ho jayega
+
+
+Ex:    
+
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+@NgModule({
+  
+imports:      [ BrowserModule ],   // iska use module.ts file ko  import krna hota hai dusre component ki
+
+providers:    [ Logger ],
+ 
+declarations: [ AppComponent ],  // component ko declare krne ke liye krte hai
+  
+exports:      [ AppComponent ], // iska use component ko export krna hota hai jissai hum dusre module mai jake iss file ko import kr                                       sakee tabhii jake humara component execute hoga
+  
+bootstrap:    [ AppComponent ] //   ye deploy krta hai component ko main.ts file mai jake
+})
+export class AppModule { }
+
+
+
+
+************************************************************** Routing ******************************************************************
+
+----> iska use component ke routing ke liye kiya jata hai Ex-- application mai hmare pass navbar hota hai jab hum uss navbar ke kissi       particular link ko click krte hai to new page open hota hai yaiii cheez routing ke thorugh hoti hai yaaa
+
+---------> Routing install kaise krreee
+
+          1. jab hum Angular ka project bnate hai haoi tab hume ek option hai do you want routing (Y/N) to hmee waa per (Y) Kr dena hai
+              jissai automatic routing install ho jayegi uss time
+
+
+         2. project create hone ke  bad hmare pass App component  mai Routing name kee TS file hoti hai waa per jake hmee Rotuing set Kr             deni hai bass 
+
+
+Note: Routes ko import krna padega
+
+Ex: const routes: Routes =
+[{
+path:"home",
+component: homecomponent(tume jo component ko rout krna ho uska name)
+
+}]
+
+
+         3. firr html file mai jake patth set kr denge EX: <a routerLink='/home'>home</a>
+         4. Fir <router-outlet></router-outlet> set krna padega tabhi routing work kregi
+
+
+
+
+----------------------------------->  Defining a basic route <-------------------------------------------------
+----->   Import the AppRoutingModule into AppModule and add it to the imports array.
+
+------>1. Import RouterModule and Routes into your routing module.  (import { Routes, RouterModule } from '@angular/router';)
+
+------->2. Define your routes in your Routes array. (const routes: Routes = [{ path: 'first-component', component: FirstComponent },
+                                                                             { path: 'second-component', component: SecondComponent },];)
+
+-------> 3. Add your routes to your application.  (firr html file mai jake patth set kr denge EX: <a routerLink='home'>home</a>)
+
+
+
+
+--------------------------------------------->   Displaying a 404 page   <----------------------------------------------------------
+
+Ex:   { path: '**', component: PageNotFoundComponent },  // Wildcard route for a 404 page
+
+The last route with the path of ** is a wildcard route. The router selects this route if the requested URL doesn't match any of the paths earlier in the list and sends the user to the PageNotFoundComponent.
+
+
+
+
+---------------------------------------------------> Nesting routes  <-----------------------------------------------------------------
+-->   As your application grows more complex, you might want to create routes that are relative to a component other than your root component. These types of nested routes are called child routes. This means you're adding a second <router-outlet> to your app, because it is in addition to the <router-outlet> in AppComponent.
+
+In this example, there are two additional child components, child-a, and child-b. Here, FirstComponent has its own <nav> and a second <router-outlet> in addition to the one in AppComponent.
+
+
+EX:    const routes: Routes = [
+  {
+    path: 'first-component',
+    title: 'First component',
+    component: FirstComponent,  // this is the component with the <router-outlet> in the template
+    children: [
+      {
+        path: 'child-a',  // child route path
+        title: ResolvedChildATitle,
+        component: ChildAComponent,  // child route component that the router renders
+      },
+      {
+        path: 'child-b',
+        title: 'child b',
+        component: ChildBComponent,  // another child route component that the router renders
+      },
+    ],
+  },
+];
+
+@Injectable({providedIn: 'root'})
+export class ResolvedChildATitle implements Resolve<string> {
+  resolve() {
+    return Promise.resolve('child a');
+  }
+}
+
+
+
+
+EX::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+0. make two component first for child routing
+
+
+1. const routes: Routes = [{ path: 'first-component', component: FirstComponent 
+
+                       children:[{path:"child-1" , component: childcomponent}]},
+
+
+                        { path: 'second-component', component: SecondComponent },];
+
+
+
+2.  then pass the link inside the specific component
+
+
+
+
+
+--------------------------------------------->  Lazzy Loading <-----------------------------------------------
+
+1.Lazy loading:- You can configure your routes to lazy load modules, which means that Angular only loads modules as needed, rather than                  loading all modules when the application launches. Additionally, preload parts of your application in the background to                  improve the user experience
+
+(mtlb ki Angular utne hee Module loads krega jitne kee usko jarurt hogi ye naii ki saree module load kr le) iske through user experience  increase  hota hai
+
+Ex--1.(with lazzy load)   const routes: Routes = [
+         {
+           path: 'items',
+           loadChildren: () => import('./items/items.module').then(m => m.ItemsModule)
+         }
+                                 ];
+
+EX:--2. (without lazzy load)
+
+const routes: Routes = [
+  {
+    path: '',
+    component: ItemsComponent
+  }
+];
+
+
+(component kee jgaa per loadChildren() liktee haii (lazzy load ke liye))
+
+
+
+********************************************************** Decoraters ***************************************************************
+
+TypeScript Decorators serves the purpose of adding both annotations and metadata to the existing code in a declarative way.
+
+
+
+
+************************************************************* Angular start **********************************************************
+
+install process: 
+1. node and npm install
+2. npm install -g typescript
+3. ng new projectname
+4. ng serve or npm start (for strating project)
+
+
+In the Angular project  
+1. src is a main component inside this we have (app) component which through Angular project runs
+2. index.html file mai hum root declare kree hai jiske through hmme data show hota hai browser mai (app-route)
+
+
+// Agar hum Approutingmodule hta de to ye error dega kyoki ye routing ke liye use hota hai 
+// jo ki app-routing.module.ts mai declare hai 
+// agar html file mai routing use nai ho rhi to hum issai hta sakte hai koi error nai Aayegi
+<!--  router-outlet ek router ha jo ki app.modules.ts se aa rha hai import ke thorugh  or app.module.ts mai routing app-routing.module.ts se routing export hui hai  -->
+
+
+
+Note:       
+
+Ex:
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root1',
+  template: "<h1>mai new huu</h1>",    or templateUrl:'./directory name' likeee--- html file(exa.html)                                                
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent1 {
+  title = 'Firstangularbedf';
+}
+
+
+
+// templateUrl: yaa per hum template jo bnate hai like html file(component) ka url dalte hai execute krne ke liye browser mai
+// template:  templateUrl ki jga hum ye bee likk sakte hai per humme yaa per template ko desgin krna padega 
+
+
+
+project kaise run hota hai------------>
+
+1. first hum component bnate hai
+
+2. fir hum iske ander html file or component.ts ki file bnate hai (html ki file ko   component.ts file mai pass krte hai as a template or templateUrl)
+
+3. fir hum module.ts name ki file bnate hai  jhaa per hum uss component.ts wali file ko import krte hai or agar routing use ho rhi hai to wo be import krke add kr dete hai yaa
+
+4. fir module.ts file Main.ts file mai render hoti hai   orrrr   index.html mai     component.ts file  ki selector value ko pass krdete hai 
+
+5. abb humara project browser per run ho jayega
+
+
+***********************************************************  M V C (framework) ********************************************************
+
+Model − It is the lowest level of the pattern responsible for maintaining data.
+
+View − It is responsible for displaying all or a portion of the data to the user.
+
+Controller − It is a software Code that controls the interactions between the Model and View.
+
+
+
+****************************************************************************************************************************************
+1-> Angular:- it is a component basedframework which through we make single page application (Scalable web application)
+
+              it's provides developer tools to help you develope , build , test , update the your code
+
+
+
+
+
+********************************************************** Components in Angular *****************************************************
+
+--->  Components are the building blocks that compose an application. A component includes a TypeScript class with a @Component() decorator, an HTML template, and styles
+
+like-
+1. selector value 
+2. css information
+3. html template information 
+
+
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'hello-world',
+  template: `
+    <h2>Hello World</h2>
+    <p>This is my first component!</p>
+  `
+})
+export class HelloWorldComponent {
+  // The code in this class drives the component's behavior.
+}
+
+
+
+
+
+
+
+When Angular renders this component, the resulting DOM looks like this:
+
+content_copy
+<hello-world>
+    <h2>Hello World</h2>
+    <p>This is my first component!</p>
+</hello-world>
+
+
+
+--------- we can also add the dynamic value in html file  with the help of this ---> {{proertyname}}
+
+Ex: ab.html  <p>{{ message }}</p>
+
+Ex: sb.ts
+
+   import { Component } from '@angular/core';
+
+@Component ({
+  selector: 'hello-world-interpolation',
+  templateUrl: './hello-world-interpolation.component.html'
+})
+export class HelloWorldInterpolationComponent {
+    message = 'Hello, World!';
+}
+
+
+
+
+Note: but we can not modify the value with hte help of interpolation --> {{}} <-- and also we can not check the typeof of value --------------------------------------------      
+
+
+
+
+
+
+Note:   Add additional functionality to your templates through the use of directives. The most popular directives in Angular are (*ngIf )and (*ngFor). Use directives to perform a variety of tasks, such as dynamically modifying the DOM structure. And create your own custom directives to create great user experiences. 
+
+
+
+---------------> Create component:    we can create two ways component   
+                                      1. by manually
+                                      2. by Angular CLI (ng generate component   componentname)  
+
+---------------->  after creating four files will be generate 
+
+                   1. component.ts
+                   2. component.html
+                   3. component.css
+                   4. component.spec.ts(for testing purpose)
+
+
+
+*********************************************************************** Component LifeCycle *****************************************************************************************
+
+Angular LifeCycle Follows sequence  
+1. first will be called Constructor()
+
+2. ngOnchanges()---> ye multiple times bar execute hota hai 
+
+                 ---> ye first bar component  creation time execute hota hai
+
+                 ---> or ye bar bar execute hota hai jab inpute value change hoti rhti hai jiske samne (@input) decorater lgga hota hai (or ye arguments ke sath execute hota hai like simple  changes) 
+
+                ----> ek bar value update ho gyi to dubara execute nai hoga 
+                
+                ---> agar dubara fir value update hoti hai to fir execute hoga
+
+               ----> (@Input) decoration ke bina ye execute nai hota hai
+
+
+3. ngOnInit()---->  ye component ke initialize hone ke time execute hota hai (for making custom code) (sirf ek bar exucute hoga wo be automatic)
+
+             ----> (@Input) decoration ke bina execute hota hai
+
+4. ngDoCheck() --->  ye hook be multiple time bar execute hota hai jab kabhi application mai koi event perform hota hai like button , links like that tab humara component uss time render                      hota hai issliye (jaise hee usko koi chnages detect hota hai too woo  execute ho jata hai)
+
+               ----> value update hone ke bad be execute hota rhta hai bar bar ye
+
+*********************************************************************************** Angular CLI  **************************************************************************************
+
+The Angular CLI is the fastest, straightforward, and recommended way to develop Angular applications. The Angular CLI makes a number of tasks trouble-free. Here are some examples:
+
+
+5. ngAfterContentInit()----->   
+
+
+
+6. ngAfterContentChecked() ----->  ye same ngDoCheck() kee taree work krta hai ye tab execute hota hai jab ngAfterContentInit() method mai content initilize hota hai too                                                        ngAfterContentChecked() uskoo detect krr leta hai
+
+                           ----->  value update hone ke bad be execute hota rhta hai bar bar ye
+
+
+
+7. ngAfterViewInit() --------->  ye tab execute hota hai jab humara component purrri taree see initialize ho jata hai  orr component kaa view puriii tarre se render ho jata hai
+
+                     ------------>   ye component ke initialize hone ke time execute hota hai (for making custom code) (sirf ek bar exucute hoga wo be automatic)
+
+             ----> (@Input) decoration ke bina execute hota hai
+
+
+8. ngAfterViewChecked()-------->  ye tab execute hota hai jab sare process execute ho jate hai  
+
+
+                       ---------->   ye same ngDoCheck() kee taree work krta hai ye tab execute hota hai jab ngAfterContentInit() method mai content initilize hota hai too                                                        ngAfterContentChecked() uskoo detect krr leta hai
+
+                           ----->  value update hone ke bad be execute hota rhta hai bar bar ye
+
+
+
+9. ngOnDestroy()--------------->   ye tab execute hota hai jab humara component destroy hone wala ho uske theek phale ye execute hota hai
+
+
+
+
+
+
+Question->   Difference between ngOnInit() vs ngAfterContentInit()
+
+Question->  Difference between   ngDoCheck() vs ngAfterContentChecked()
+
+// 16-06-2022
+Question-> what is standalone components
+Question-> what is the use of commonmodule(jab hum new module bnate hai to by default ye Aa jata hai but ku)
+question-> browser ke console mai ek runtime.js file kya hai jab hum angular run krte hai
+
+
+
+
+
+*******************important (3-07-2022)
+
+//  The KeyValue Pipe converts given Object or Map into an array of key-value pairs.
+//   We can use this with the ngFor to loop through the object keys.
+//    The keyValue accepts the one argument compareFn ,
+//     which we can use to set the custom sort to the pipe.
+
+EX: 
+ tshirtsSize = TshirtSize;
+  bloodGroup = FormEnum;                                                   // ye ts kee file mai liknge  (FormEnum) hai wo enum hai jo interface jaise he create krte hai model ke ander
+
+
+
+EX:
+export enum FormEnum {
+  Apositive='A+',
+  Bpositive='B+',
+  Opositive='O+',
+}
+
+
+EX:
+
+    <option *ngFor="let item of bloodGroup | keyvalue ">{{item.value}}</option>  ******************// keyvalue*******************
+
+
+
+************************************************************************** Angular Interceptor ******************************************************
+
+-> iska use http request or response ko handle krna hota hai (ek sath sariiii token ke liye wernaaaa hmko sabke liye Alag se code likna padta hai)
+
+EX:
+interface HttpInterceptor {
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>
+}
+
+
+app.module mai hmko ye add krna hota  hai
+
+
+providers:[{provide:HTTP_INTERCEPTOR, useClass:AuthInterceptor , multi:true}]
+
+
+
+*************************************************************************Angular CanActivate******************************************************
+
+-> iska use route ko kab activate rkna hai or kab nai issliye iska use krte hai (agar true hai iski value to route continue rhega otherwise naii)
+
+
+
+
+*************** bearer token
+
+
+
+
+*********************************************************.NET(8-07-2022)**********************************************
+ssms -> install
+Sql -> revise
+C-sharp -> study
