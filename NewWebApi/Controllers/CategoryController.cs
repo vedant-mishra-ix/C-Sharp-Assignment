@@ -14,16 +14,46 @@ namespace NewWebApi.Controllers
 
         [HttpPost] // agar ye nai lgaynge to hmko error ayegi swagger mai
         //[Route("StudentProfile")]
+        
         public Student StudentProfile()
         {
-            return new Student();
+            Student val1 = new Student();
+            val1.Message = " done";
+            string  msg = val1.Message;
+            if(msg == null)
+            {
+                return new Student();
+            }
+            else
+            {
+                return new Student() { Id=10,Message= msg};
+            }
         }
         
         [HttpGet]
         [Route("StudentRecord")]
         public Student StudentRecord()
         {
-            return new Student();
+            Student val = new Student();
+
+
+            if (this.StudentProfile() == null)
+            {
+                return new Student();
+            }
+            else
+            {
+                return this.StudentProfile();
+            }
+            
         }
+        [HttpGet]
+        [Route("View")]
+        public string  View()
+        {
+            return "Hi";
+        }
+
+        
     }
 }

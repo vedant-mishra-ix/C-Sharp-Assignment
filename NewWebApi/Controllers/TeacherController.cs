@@ -14,7 +14,7 @@ namespace NewWebApi.Controllers
         [Route("Profile")]
         public Teacher Profile()
         {
-            return new Teacher();
+            return new Teacher() { Name="Pankaj",Address="Latur"};
         }
         [HttpPost]
         [Route("Record")]

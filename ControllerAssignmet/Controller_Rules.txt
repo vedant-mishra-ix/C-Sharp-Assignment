@@ -1,0 +1,32 @@
+1. First create .Net Core Web MVC Project with (with rozer file)
+2. then run
+3. if you wat to add new item in navigation bar so go to shared folder
+4. then do changes in layout.cshtml file
+
+EX:
+   <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="About" asp-action="About">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="CaseStories" asp-action="CaseStories">CaseStory</a>
+                        </li>
+
+Where asp-controller is a your custom controller
+
+Where asp-action is your custom method name contain
+
+5. Your controller name and html file name and his folder name should be same ohter wise you will be faced error
+
+6. after creating controller create folder inside view folder
+
+7. then create cshtml file inside newfolder
+8. then run again project 
