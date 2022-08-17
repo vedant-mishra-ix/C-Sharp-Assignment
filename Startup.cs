@@ -47,7 +47,11 @@ namespace Dependency_Injection_Crud
 
             // ismai bee   jab jab hum request krnge to ye every time new instance create krega
 
-            services.AddTransient(typeof(IStudent),typeof(StudentRepo1));
+             services.AddTransient(typeof(IStudent),typeof(StudentRepo1));   // first way inject service
+            //services.AddTransient<IStudent, StudentRepo1>();    second way inject service
+
+           // services.AddTransient(typeof(StudentRepo1), typeof(StudentRepo1));
+            
 
             /*
              * Whenever I used AddSingleton() then  I got this Exception

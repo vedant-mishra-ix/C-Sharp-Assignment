@@ -1,4 +1,5 @@
-﻿using Dependency_Injection_Crud.Models;
+﻿using Dependency_Injection_Crud.Controllers;
+using Dependency_Injection_Crud.Models;
 using Dependency_Injection_Crud.StudentModel;
 using Dependency_Injection_Crud.StudentRepo;
 using Microsoft.EntityFrameworkCore;
@@ -15,40 +16,45 @@ namespace Dependency_Injection_Crud.StudentService
         private readonly CoreDbContext _DbContext;
         private readonly DbSet<Student> _DbSet;
 
-        public StudentRepo1(CoreDbContext Context)
+        public StudentRepo1()
         {
-            _DbContext = Context;
-            _DbSet = _DbContext.Set<Student>();
+            _DbContext = new CoreDbContext();       // without Dependency Injection
         }
+
+        //public StudentRepo1(CoreDbContext Context)
+        //{
+        //  //  _DbContext = Context;                       // with Dependency Injection
+        //   // _DbSet = _DbContext.Set<Student>();
+        //}
 
         public async Task<Student> Add(Student obj)
         {
-            var AddData = await _DbSet.AddAsync(obj);
+            var AddData = await _DbContext._DbSet.AddAsync(obj);
             _DbContext.SaveChanges();
             return AddData.Entity ;
         }
 
         public  Student Delete(Student obj)
         {
-            var DataDelete = _DbSet.Remove(obj);
+            var DataDelete = _DbContext._DbSet.Remove(obj);
             _DbContext.SaveChanges();
             return DataDelete.Entity;
         }
 
         public IEnumerable<Student> GetAll()
         {
-            return _DbSet;
+            return _DbContext._DbSet;
         }
 
         public  Student GetById(int id)
         {
-            var DataById = _DbSet.Find(id);
+            var DataById = _DbContext._DbSet.Find(id);
             return DataById;
         }
 
         public bool Update(Student obj, int id)
         {
-            var DataUpdate = _DbSet.Where(obj => obj.Id == id).ToList();
+            var DataUpdate = _DbContext._DbSet.Where(obj => obj.Id == id).ToList();
             int c = 0;
             foreach(var UpdateData in DataUpdate)
             {
@@ -58,8 +64,9 @@ namespace Dependency_Injection_Crud.StudentService
                     UpdateData.Email = obj.Email;
                     UpdateData.Address = obj.Address;
 
-                    _DbSet.Update(UpdateData);
+                    _DbContext._DbSet.Update(UpdateData);
                     _DbContext.SaveChanges();
+                    
                     c++;
                     return true;
                 }

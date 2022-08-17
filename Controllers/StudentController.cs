@@ -1,5 +1,6 @@
 ﻿using Dependency_Injection_Crud.StudentModel;
 using Dependency_Injection_Crud.StudentRepo;
+using Dependency_Injection_Crud.StudentService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -13,20 +14,28 @@ namespace Dependency_Injection_Crud.Controllers
     [ApiController]
     public class StudentController : ControllerBase
     {
-        private readonly IStudent _Student;
+        //private readonly IStudent _Student;
 
-        public StudentController(IStudent Student)
+
+        //public StudentController(IStudent Student)
+        //{
+        //    _Student = Student;
+        //}
+
+        StudentRepo1 _Student;
+        public StudentController()
         {
-            _Student = Student;
+            _Student = new StudentRepo1();
         }
 
-        //Student _Student = new Student(); 
 
         [HttpGet]
         [Route("View")]
         public IActionResult View()
         {
+            
             var AllData = _Student.GetAll();
+            
 
             return Ok(AllData);
         }
@@ -44,9 +53,11 @@ namespace Dependency_Injection_Crud.Controllers
         [Route("Get/{id}")]
          public IActionResult GetById(int id)
         {
+           
             var DataByID = _Student.GetById(id);
 
             return Ok(DataByID);
+
         }
 
         [HttpPut]
