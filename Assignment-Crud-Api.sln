@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32602.291
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment-Crud-Api", "Assignment-Crud-Api\Assignment-Crud-Api.csproj", "{04040347-7659-41D2-ACA9-AF121CCC5DAE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04040347-7659-41D2-ACA9-AF121CCC5DAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04040347-7659-41D2-ACA9-AF121CCC5DAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04040347-7659-41D2-ACA9-AF121CCC5DAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04040347-7659-41D2-ACA9-AF121CCC5DAE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C14B75B4-E542-4475-A420-D6F0800B1DBF}
+	EndGlobalSection
+EndGlobal
