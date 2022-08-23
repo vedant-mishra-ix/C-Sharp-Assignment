@@ -25,6 +25,7 @@ namespace Assignment_Crud_Api.Service
         public CollegeService(ICollegeDal _College)
         {
             College = _College;
+
         }
 
         public async Task<CollegeModel> Add(CollegeModel CollegeModelObj)
@@ -46,8 +47,8 @@ namespace Assignment_Crud_Api.Service
 
         public CollegeModel Delete(int Id)
         {
-
-            var DataDel = College.Delete(Id);
+           // var dataDelete = College.GetAll().FirstOrDefault(obj => obj.Id == Id);
+            var DataDel = College.Delete(Id);  
             return new CollegeModel { Id = DataDel.Id};
             
         }

@@ -85,7 +85,7 @@ namespace Assignment_Crud_Api.Data
                 }
             }
 
-            return obj;
+            return null;
         }
     }
 }

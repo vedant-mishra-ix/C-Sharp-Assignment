@@ -30,7 +30,16 @@ namespace Assignment_Crud_Api.Controllers
         [Route("Add")]
         public IActionResult AddData(StudentModel obj)
         {
-            return Ok(StudentService.Add(obj));
+            var dataAdd = StudentService.GetAll().FirstOrDefault(obj => obj.Email == obj.Email);
+            if(dataAdd != null)
+            {
+                return BadRequest("Email already exist");
+            }
+            else
+            {
+                StudentService.Add(obj);
+                return Ok();
+            } 
         }
 
         [HttpGet]
@@ -45,7 +54,17 @@ namespace Assignment_Crud_Api.Controllers
 
         public IActionResult Update(StudentModel obj, int Id)
         {
-            return Ok(StudentService.Update(obj, Id));
+            var DataUpdate = StudentService.GetAll().FirstOrDefault(obj => obj.Id == Id);
+            if(DataUpdate == null)
+            {
+                return BadRequest("Data Not Found");
+            }
+            else
+            {
+                StudentService.Update(obj, Id);
+                return Ok(new Response1 { Succesfull="Data updated succesfully"});
+            }
+           
         }
 
         [HttpDelete]
@@ -53,7 +72,17 @@ namespace Assignment_Crud_Api.Controllers
 
         public IActionResult Delete(int Id)
         {
-            return Ok(StudentService.Delete(Id));
+            var DataDelete = StudentService.GetAll().FirstOrDefault(obj => obj.Id == Id);
+            if (DataDelete == null)
+            {
+                return BadRequest("Data Not Found");
+            }
+            else
+            {
+                StudentService.Delete(Id);
+                return Ok(new Response1 { Succesfull = "Data Deleted succesfully" });
+            }
+            
         }
     }
 }
